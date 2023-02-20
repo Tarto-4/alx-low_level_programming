@@ -1,4 +1,4 @@
-#include "alx.h"
+#include <stdio.h>
 
 /**
  * _islower - checks for lowercase

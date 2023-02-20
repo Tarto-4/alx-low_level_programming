@@ -1,4 +1,4 @@
-#include "alx.h"
+#include <stdio.h>
 
 /**
  * print_times_table - prints the times table

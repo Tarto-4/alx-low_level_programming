@@ -1,4 +1,4 @@
-#include "alx.h"
+#include <stdio.h>
 
 /**
  * add - adds two integers
