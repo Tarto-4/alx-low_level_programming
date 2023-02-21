@@ -1,11 +1,9 @@
 #include "main.h"
 
 /**
- * main - print putchar
- *
+ * main - the driver function print _putchar followed on a new line
  * Return: always 0
  */
-
 int main(void)
 {
 	_putchar('_');
