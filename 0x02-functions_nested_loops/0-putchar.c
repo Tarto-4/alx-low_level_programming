@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  *
- * Return: Alwyas 0 (Success)
+ * Return: Alwyas 0 
  */
 
 int main(void)
