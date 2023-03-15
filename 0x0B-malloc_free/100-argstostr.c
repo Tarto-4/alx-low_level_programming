@@ -1,54 +1,49 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * _strlen - get length
- * @c: string
- * Return: returns length
- */
-
-int _strlen(char *c)
-{
-	int len;
-
-	for (len = 0; c[len] != '\0'; len++)
-		;
-
-	return (len);
-}
-
-/**
- * argstostr - concat str
- * @ac: number of args
- * @av: args
- * Return: returns a pointer to the two strings concatenated, or NULL if fails
+ * argstostr - function that concatenates all the arguments of your program
+ *
+ * @ac: argument count
+ * @av: pointer to a string of pointers to strings
+ *
+ * Return: address of the newly allocated memory
  */
 
 char *argstostr(int ac, char **av)
 {
-	char *ptr;
-	int x, y, len = 0, c;
+	int i, j, k;
+	int sumlen = 0;
+	char *arg_concat;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (x = 0; x < ac; x++)
-		len += _strlen(av[x]);
-
-	ptr = malloc((len + ac + 1) * sizeof(char));
-
-	if (!ptr)
-		return (NULL);
-
-	for (x = 0; x < ac; x++)
+	for (i = 0; i < ac; i++)
 	{
-		for (y = 0; av[x][y] != '\0'; y++, c++)
-			ptr[c] = av[x][y];
-		ptr[c] = '\n';
-		c++;
+		for (j = 0; av[i][j] != '\0'; j++)
+			sumlen++;
+		sumlen++;
 	}
-	ptr[c] = '\0';
-	return (ptr);
+	sumlen++;
+
+	arg_concat = malloc(sumlen * sizeof(char));
+	if (arg_concat == NULL)
+	{
+		free(arg_concat);
+		return (NULL);
+	}
+
+	k = 0;
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++, k++)
+		{
+			arg_concat[k] = av[i][j];
+		}
+		arg_concat[k] = '\n';
+		k++;
+	}
+	return (arg_concat);
 }
