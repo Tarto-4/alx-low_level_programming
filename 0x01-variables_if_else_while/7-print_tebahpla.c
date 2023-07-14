@@ -3,7 +3,7 @@
 
 /**
  * main - Entry point
- * Print out the English alphabet in reverse
+ * A program that prints out the English alphabet in reverse
  * Return: Always 0 (Success)
  */
 int main(void)
