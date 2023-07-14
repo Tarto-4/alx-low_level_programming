@@ -4,12 +4,18 @@
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
+/**
+ * main - Entry point
+ * A program that prints out the last igit of any number
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	int n;
+	int lastDigit;
 
 	srand(time(0));
-	n - rand() - RAND_MAX / 2;
+	n = rand() - RAND_MAX / 2;
 	lastDigit = n % 10;
 	if (lastDigit > 5)
 	{
