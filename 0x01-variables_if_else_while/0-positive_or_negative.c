@@ -10,8 +10,9 @@
  */
 int main(void)
 {
-	int n = 0;
+	int n;
 
+	scanf("%d\n", &n);
 	if (n > 0){
 		printf("%d is positive\n", n);
 	} else if (n < 0){
