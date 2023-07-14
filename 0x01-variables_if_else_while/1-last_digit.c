@@ -31,4 +31,5 @@ int main(void)
 	{
 		printf("Invalid\n");
 	}
+	return (0);
 }
