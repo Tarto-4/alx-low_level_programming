@@ -4,6 +4,7 @@
  * main - Entry point
  * _putchar: prints out a single character in succesion
  * due to for loop.
+ * @c: character to be printed out
  * Return: Always 0 (Success)
  */
 
