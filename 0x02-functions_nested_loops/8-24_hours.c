@@ -3,7 +3,7 @@
 /**
  * jack_bauer - prints out every minute of the day
  * void: no return value
- * Return: no value
+ * Return: Always 0 (Sucess)
  */
 int jack_bauer(void)
 {
@@ -32,4 +32,5 @@ int jack_bauer(void)
 			}
 		}
 	}
+	return (0);
 }
