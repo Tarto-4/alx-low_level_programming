@@ -7,8 +7,11 @@
  */
 int _islower(int c)
 {
-	if ((_islower(i)) == 0)
+	if ((_islower(c)) == 0)
 	{
 		return (1);
+	} else
+	{
+		_putchar('\n');
 	}
 }
