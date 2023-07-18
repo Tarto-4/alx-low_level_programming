@@ -6,9 +6,8 @@
  * Return: 1 if number is > 0, 0 if number is equivalent to zero,
  * and -1 if less than zero.
  */
-int print_sign(int c)
+int print_sign(int n)
 {
-	int n = 0;
 
 	if (n > 0)
 	{
@@ -18,10 +17,9 @@ int print_sign(int c)
 	{
 		_putchar('0');
 		return (0);
-	} else if (n < 0)
+	} else
 	{
 		_putchar('-');
 		return (-1);
 	}
-	return (0);
 }
