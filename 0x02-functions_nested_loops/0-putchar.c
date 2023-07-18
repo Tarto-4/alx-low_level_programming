@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- *
  * main - Entry point
- *
+ * _putchar: prints out a single character in succesion
+ * due to for loop.
  * Return: Always 0 (Success)
  */
 
