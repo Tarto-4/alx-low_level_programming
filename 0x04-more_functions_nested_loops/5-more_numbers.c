@@ -7,14 +7,25 @@ void more_numbers(void)
 {
 	int i;
 	int j;
+	int k;
 
-	for (i = 48; i <= 57; i++)
+	for (i = 0; i <= 9; i++)
 	{
-		for (j = '1'; j <= '14'; j++)
+		for (j = 48; j <= 49; j++)
 		{
-			_putchar(j);
+			for (k = 48; k <= 57; k++)
+			{
+				if (j != 48)
+				{
+					_putchar(j);
+				}
+				_putchar(k);
+				if (j == 49 && k == 52)
+				{
+					break;
+				}
+			}
 		}
-		_putchar(i);
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
