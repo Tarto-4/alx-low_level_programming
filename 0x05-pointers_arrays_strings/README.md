@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ## ALX: POINTERS,ARRAYS & STRINGS
+=======
+## ALX: POINTERS, ARRAYS AND STRINGS
+>>>>>>> f70d8b2ebd0eff10fe50c6f607df29fbcd2fcb5e
