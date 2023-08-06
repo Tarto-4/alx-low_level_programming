@@ -1,21 +1,21 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * *_strcpy - copy the string pointed by src, to the buffer pointed to by dest
- * @dest: char pointer
- * @src: char pointer 2
- * Return: dest pointer
+ * _strcpy - copies the string pointed to by src
+ * @dest: destination
+ * @src: source
+ * Return: char with copy of string
  */
 
 char *_strcpy(char *dest, char *src)
 {
-	int len, count;
+	int i;
 
-	len = 0;
+	for (i = 0; *(src + i) != '\0'; i++)
+	{
+		dest[i] = *(src + i);
+	}
+	dest[i] = '\0';
 
-	while (src[len] != '\0')
-		len++;
-	for (count = 0; count <= len; count++)
-		dest[count] = src[count];
 	return (dest);
 }

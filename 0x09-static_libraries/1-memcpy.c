@@ -1,19 +1,20 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _memcpy - memset function
- * @dest: start point of string to change
- * @src: value that will replace
- * @n: number of bytes to change
- * Return: changed pointer
+ * *_memcpy - copies memory area
+ * @dest: memory area
+ * @src: source
+ * @n: length of src
+ *
+ * Return: pointer to dest.
  */
-
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	char *dest1 = dest;
-	char *src1 = src;
+	unsigned int i;
 
-	for (; n != 0; dest1++, n--, src1++)
-		*dest1 = *src1;
+	for (i = 0; i < n; i++)
+	{
+		dest[i] = src[i];
+	}
 	return (dest);
 }

@@ -1,43 +1,36 @@
-#include "holberton.h"
+
+#include "main.h"
 
 /**
- * _atoi - converts a string to an integer
- * @s: string to be converted
- * Return: integers in a string
+ * _atoi - converts a string to an integer.
+ * @s: input string.
+ * Return: integer.
  */
-
 int _atoi(char *s)
 {
-	int num, len, numcount, mult, x, neg;
+	unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
 
-	len = 0;
-	x = 0;
-	numcount = 0;
-	mult = 1;
-	neg = 1;
-	num = 0;
+	while (*(s + count) != '\0')
+	{
+		if (size > 0 && (*(s + count) < '0' || *(s + count) > '9'))
+			break;
 
-	while (s[len] != '\0')
-	{
-		if (s[len] >= '0' && s[len] <= '9')
+		if (*(s + count) == '-')
+			pn *= -1;
+
+		if ((*(s + count) >= '0') && (*(s + count) <= '9'))
 		{
-			numcount++;
-			if (!(s[len + 1] >= '0' && s[len + 1] <= '9'))
-				break;
+			if (size > 0)
+				m *= 10;
+			size++;
 		}
-		len++;
+		count++;
 	}
-	for (; numcount > 1; numcount--)
-		mult *= 10;
-	for (; x <= len; x++)
+
+	for (i = count - size; i < count; i++)
 	{
-		if (s[x] == '-')
-			neg *= -1;
-		else if (s[x] <= '9' && s[x] >= '0')
-		{
-			num += (s[x] - '0') * mult * neg;
-			mult /= 10;
-		}
+		oi = oi + ((*(s + i) - 48) * m);
+		m /= 10;
 	}
-	return (num);
+	return (oi * pn);
 }
