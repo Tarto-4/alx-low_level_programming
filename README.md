@@ -1,1 +1,1 @@
-# ALX: low-level pragramming
+# ALX: low-level programming
