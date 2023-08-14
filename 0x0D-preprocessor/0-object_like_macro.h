@@ -1,1 +1,1 @@
-#ifndef SIZE 1024
+#ifdef SIZE 1024
