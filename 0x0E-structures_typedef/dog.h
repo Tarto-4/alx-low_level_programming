@@ -2,6 +2,7 @@
 #define DOG_H
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 /**
  * struct dog - Unique dog's ID
  * @name: name of dog.
