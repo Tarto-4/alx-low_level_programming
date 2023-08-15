@@ -11,5 +11,5 @@ struct dog
 	char *name[100];
 	float age;
 	char *owner;
-};
+} my_doggo;
 #endif /* DOG_H */
