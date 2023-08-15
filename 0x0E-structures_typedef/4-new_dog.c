@@ -5,7 +5,7 @@
  * @str: string
  * Return: pointer to a newly allocated space in memory
  */
-char _strdup(char *str)
+char *_strdup(char *str)
 {
 	int length, i;
 	char *arr;
@@ -14,12 +14,14 @@ char _strdup(char *str)
 	{
 		return (NULL);
 	}
+
 	length = 0;
 	while (*(str + length) != '\0')
 	{
 		length++;
 	}
-	arr = (char *) malloc(length * sizeof(char) + 1);
+
+	arr = (char*) malloc(length * sizeof(char) + 1);
 	if (arr == NULL)
 		return (NULL);
 	for (i = 0; i < length; i++)
@@ -29,6 +31,7 @@ char _strdup(char *str)
 	arr[i] = '\0';
 	return (arr);
 }
+
 /**
  * new_dog - creates a new dog
  * @name: name of dog
@@ -44,6 +47,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 	doggy = malloc(sizeof(dog_t));
 	if (doggy == NULL)
 		return (NULL);
+	doggy_name = _strdup(name);
+	if (doggy_name == NULL)
+	{
+		free(doggy);
+		return (NULL);
+	}
 	doggy_owner = _strdup(owner);
 	if (doggy_owner == NULL)
 	{
