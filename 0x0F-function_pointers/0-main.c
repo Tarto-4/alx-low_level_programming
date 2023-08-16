@@ -18,8 +18,7 @@ void print_name_uppercase(char *name)
 {
 	unsigned int i;
 
-	printf("My name in uppercase, ");
-
+	printf(" is my uppercase name!");
 	i = 0;
 	while (name[i])
 	{
