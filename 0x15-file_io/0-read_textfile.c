@@ -1,39 +1,36 @@
 #include "main.h"
 
+/**
+ * read_textfile - reads a text file and prints the letters
+ * @filename: filename.
+ * @letters: numbers of letters printed.
+ *
+ * Return: numbers of letters printed. It fails, returns 0.
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-    if (filename == NULL)
-        return 0;
+	int fd;
+	ssize_t nrd, nwr;
+	char *buf;
 
-    FILE *file = fopen(filename, "r");
-    if (file == NULL)
-        return 0;
+	if (!filename)
+		return (0);
 
-    char *buffer = malloc(sizeof(char) * (letters + 1));
-    if (buffer == NULL)
-    {
-        fclose(file);
-        return 0;
-    }
+	fd = open(filename, O_RDONLY);
 
-    ssize_t bytes_read = fread(buffer, sizeof(char), letters, file);
-    if (bytes_read == -1)
-    {
-        fclose(file);
-        free(buffer);
-        return 0;
-    }
+	if (fd == -1)
+		return (0);
 
-    ssize_t bytes_written = fwrite(buffer, sizeof(char), bytes_read, stdout);
-    if (bytes_written != bytes_read)
-    {
-        fclose(file);
-        free(buffer);
-        return 0;
-    }
+	buf = malloc(sizeof(char) * (letters));
+	if (!buf)
+		return (0);
 
-    fclose(file);
-    free(buffer);
+	nrd = read(fd, buf, letters);
+	nwr = write(STDOUT_FILENO, buf, nrd);
 
-    return bytes_written;
+	close(fd);
+
+	free(buf);
+
+	return (nwr);
 }
