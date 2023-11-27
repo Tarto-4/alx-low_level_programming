@@ -1,42 +1,39 @@
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include "main.h"
 
-ssize_t read_textfile(const char *filename, size_t letters) {
-    int file;
-    ssize_t read_status, write_status;
-    char *buffer;
-
+ssize_t read_textfile(const char *filename, size_t letters)
+{
     if (filename == NULL)
-        return (0);
+        return 0;
 
-    file = open(filename, O_RDONLY);
-    if (file == -1)
-        return (0);
+    FILE *file = fopen(filename, "r");
+    if (file == NULL)
+        return 0;
 
-    buffer = malloc(sizeof(char) * letters);
-    if (buffer == NULL) {
-        close(file);
-        return (0);
+    char *buffer = malloc(sizeof(char) * (letters + 1));
+    if (buffer == NULL)
+    {
+        fclose(file);
+        return 0;
     }
 
-    read_status = read(file, buffer, letters);
-    if (read_status == -1) {
+    ssize_t bytes_read = fread(buffer, sizeof(char), letters, file);
+    if (bytes_read == -1)
+    {
+        fclose(file);
         free(buffer);
-        close(file);
-        return (0);
+        return 0;
     }
 
-    write_status = write(STDOUT_FILENO, buffer, read_status);
-    if (write_status == -1 || write_status != read_status) {
+    ssize_t bytes_written = fwrite(buffer, sizeof(char), bytes_read, stdout);
+    if (bytes_written != bytes_read)
+    {
+        fclose(file);
         free(buffer);
-        close(file);
-        return (0);
+        return 0;
     }
 
+    fclose(file);
     free(buffer);
-    close(file);
 
-    return (write_status);
+    return bytes_written;
 }
