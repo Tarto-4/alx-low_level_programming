@@ -6,24 +6,15 @@ TARGET = school
 # Define source files (replace with your actual file names)
 SOURCES = main.c functions.c 
 
-# Define the compiler and flags
-CC = gcc-9  # Using gcc version 9.3.0
-CFLAGS = -Wall -Wextra -pedantic
-
 # Define the all rule (default target)
 all: $(TARGET)
 
 # Define the rule to build the executable
 $(TARGET): $(SOURCES)
-	$(CC) $(CFLAGS) -o $(TARGET) $^
+	gcc -Wall -Wextra -pedantic -o $(TARGET) $^
 
 # Define the clean rule to remove the executable
 clean:
 	rm -f $(TARGET)
 
-# Restrict the use of editors to vi, vim, or emacs (optional)
 .PHONY: all clean
-
-# Restrict the use of editors to vi, vim, or emacs
-%.c: FORCE
-    @if ! [ $(MAKEFLAGS) :index(%): . ]; then echo 'warning: Only vi, vim, or emacs are allowed for editing C files.'; fi;
