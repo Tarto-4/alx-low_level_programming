@@ -1,20 +1,2 @@
-# Makefile for 'school' project
-
-# Define the target executable
-TARGET = school
-
-# Define source files (replace with your actual file names)
-SOURCES = main.c functions.c 
-
-# Define the all rule (default target)
-all: $(TARGET)
-
-# Define the rule to build the executable
-$(TARGET): $(SOURCES)
-	gcc -Wall -Wextra -pedantic -o $(TARGET) $^
-
-# Define the clean rule to remove the executable
-clean:
-	rm -f $(TARGET)
-
-.PHONY: all clean
+all:
+	gcc main.c holberton.c -o holberton
