@@ -97,4 +97,4 @@ int main(void)
 
 Authors
 
-    Your Name (@Tarto-4)
+@Tarto-4
