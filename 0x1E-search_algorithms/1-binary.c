@@ -1,36 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "search_algos.h"
 
-int binary_search(int *array, size_t size, int value) {
-    if (array == NULL) {
+/**
+ * binary_search - Search for a value in a sorted array using binary search algorithm
+ * @array: Pointer to the first element of the array
+ * @size: Number of elements in the array
+ * @value: Value to search for
+ *
+ * Return: Index of the value in the array, or -1 if not found
+ */
+int binary_search(int *array, size_t size, int value)
+{
+    if (array == NULL || size == 0)
         return -1;
-    }
 
-    size_t low = 0;
-    size_t high = size - 1;
+    size_t left = 0, right = size - 1;
 
-    while (low <= high) {
-        print_array(array, low, high); 
+    while (left <= right)
+    {
+        size_t mid = left + (right - left) / 2;
+        printf("Searching in array: ");
+        for (size_t i = left; i <= right; i++)
+        {
+            if (i == right)
+                printf("%d\n", array[i]);
+            else
+                printf("%d, ", array[i]);
+        }
 
-        size_t mid = (low + high) / 2;
-        if (array[mid] == value) {
+        if (array[mid] == value)
             return mid;
-        } else if (array[mid] < value) {
-            low = mid + 1;
-        } else {
-            high = mid - 1;
-        }
+        else if (array[mid] < value)
+            left = mid + 1;
+        else
+            right = mid - 1;
     }
-    return -1; 
-}
 
-
-void print_array(int *array, size_t start, size_t end) {
-    printf("Searching in array: ");
-    for (size_t i = start; i <= end; i++) {
-        printf("%d", array[i]);
-        if (i < end) {
-            printf(", ");
-        }
-    }
-    printf("\n");
+    return -1;
 }
